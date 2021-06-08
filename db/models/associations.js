@@ -1,5 +1,5 @@
 const User = require('./user');
-const Cart = require('./cart');
+const Cart = require('./carts/carts');
 const Cart_product = require('./cart_product/cart_product');
 const Product = require('./product/product');
 const Order_product = require('./order_product/order_product');
@@ -13,41 +13,30 @@ Cart.belongsTo(User,{
     foreignKey: 'userId'
 });
 
-Cart_product.belongsToMany(Cart,{
-    through: "Cart_User",
-    as: "carts",
+Cart.hasMany(Cart_product,{
     foreignKey: "cartId",
 });
 
-Cart.belongsToMany(Cart_product,{
-    through: "Cart_User",
-    as: "cart_products",
-    foreignKey: "cart_productsId",
+Cart_product.belongsTo(Cart,{
+    foreignKey: "cartId",
 });
 
-Cart_product.belongsToMany(Product,{
-    as: "products",
-    foreignKey: "id",
+Cart_product.belongsTo(Product,{
+    foreignKey: "productId",
 });
 
-Order_product.belongsToMany(Order,{
-    through: "Order_User",
-    as: "orders",
+Order.hasMany(Order_product,{
     foreignKey: "orderId",
 });
 
-Order.belongsToMany(Order_product,{
-    through: "Order_User",
-    as: "order_products",
-    foreignKey: "id",
+Order_product.belongsTo(Order,{
+    foreignKey: "orderId",
 });
 
-User.belongsToMany(Order,{
-    as: "orders",
-    foreignKey: "id",
+User.hasMany(Order,{
+    foreignKey: "userId",
 });
 
 Order.belongsTo(User, {
-    as: "users",
     foreignKey: "userId",
 });

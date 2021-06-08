@@ -1,9 +1,8 @@
 const fields = require('./fields');
+require('../models/associations');
 
 const data = SequelizeConnect.define('orders', fields, {
     tableName: 'orders',
 });
-
-Object.assign(userSchema, requireDirectory(module));
 
 module.exports = data;

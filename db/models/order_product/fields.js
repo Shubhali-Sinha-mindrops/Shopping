@@ -2,12 +2,12 @@
 
 module.exports = {
     id:{
-        type: DataTypes.Integer,
+        type: Sequelize.Integer,
         primaryKey: true,
         autoIncrement: true,
     },
-    orderId: DataTypes.Integer,
-    productId: DataTypes.Integer,
+    orderId: Sequelize.Integer,
+    productId: Sequelize.Integer,
 }
 
 

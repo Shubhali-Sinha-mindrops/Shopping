@@ -2,13 +2,13 @@
 
 module.exports = {
     id:{
-        type: DataTypes.Integer,
+        type: Sequelize.Integer,
         primaryKey: true,
         autoIncrement: true,
     },
-    title: DataTypes.TEXT,
-    description: DataTypes.TEXT,
-    price: DataTypes.Integer,
+    title: Sequelize.TEXT,
+    description: Sequelize.TEXT,
+    price: Sequelize.Integer,
 }
 
 

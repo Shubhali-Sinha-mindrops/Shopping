@@ -1,5 +1,8 @@
 'use strict';
 
+require('../models/associations');
+
+
 module.exports = function(sequelize, Sequelize) {
     const User= sequelize.define('users',{
         id:{

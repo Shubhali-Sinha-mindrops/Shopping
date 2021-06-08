@@ -3,7 +3,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require('./db/models');
 const app = express();
-const routes = require('./db/routes');
+const routes = require('./db/routes/index');
+const route = require('./db/routes/shop');
+
 
 var corsOptions = {
   origin: "http://localhost:8081"
@@ -15,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 db.sequelize.sync();
 
+app.use('/create-order', route);
 app.use('/', routes);
 
 app.get("/", (req, res) => {

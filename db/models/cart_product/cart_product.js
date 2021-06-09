@@ -1,8 +1,20 @@
-const fields = require('./fields');
+'use strict';
 
-const Cart_product = SequelizeConnect.define('cart_products', fields, {
-    tableName: 'cart_products',
-});
+require('../associations');
+module.exports = function(sequelize, Sequelize) {
+    const Cart_products= sequelize.define('cart_products',{
+        id:{
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        cartId: Sequelize.INTEGER,
+        productId: Sequelize.INTEGER,
+        quantity: Sequelize.INTEGER,
+    },{
+        timestamps:true,
+    });
 
-module.exports = Cart_product;
-
+    return Cart_products;
+};
+ 

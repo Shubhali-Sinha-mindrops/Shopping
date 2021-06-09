@@ -1,7 +1,19 @@
-const fields = require('./fields');
+'use strict';
 
-const data = SequelizeConnect.define('order_products', fields, {
-    tableName: 'order_products',
-});
+require('../associations');
+module.exports = function(sequelize, Sequelize) {
+    const Order_product= sequelize.define('order_products',{
+        id:{
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        orderId: Sequelize.INTEGER,
+        productId: Sequelize.INTEGER,
+    },{
+        timestamps:true,
+    });
 
-module.exports = data;
+    return Order_product;
+};
+ 

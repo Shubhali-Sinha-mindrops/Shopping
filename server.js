@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require('./db/models');
 const app = express();
-//const routes = require('./db/routes/index');
+const routes = require('./db/routes/index');
 const route = require('./db/routes/shop');
 
 
@@ -19,11 +19,17 @@ db.sequelize.sync();
 
 app.use('/', route);
 
+
+//userController
 /*app.use('/', routes);
 
 app.get("/", (req, res) => {
   res.json({ message: "This is a shopping app" });
 });*/
+
+
+//cartController
+app.use('/', routes);
 
 const PORT = process.env.PORT || 3000;
 

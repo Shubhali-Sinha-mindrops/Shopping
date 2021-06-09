@@ -14,8 +14,8 @@ module.exports = function(sequelize, Sequelize) {
         address: Sequelize.STRING,
     },{
         timestamps:true,
-    });
-
-    return User;
+    })
+    
+module.exports = User;
+return User;
 };
- 

@@ -1,7 +1,6 @@
 const User = require('../models/user');
-const Carts = require('../models/carts/carts');
-//const Order = require('../models/order/order');
-//const { productId } = require('../models/cart_product/fields');
+const Carts = require('../models/carts');
+const Sequelize = require('sequelize');
 
 module.exports = {
     list(req,res) {
@@ -10,10 +9,12 @@ module.exports = {
             include: [{
                 model: Carts, 
             }],
+    
         })
         .then((users) => res.status(200).send(users))
         .catch((error) => { res.status(400).send(error);});
     },
+
 
     getById(req,res) {
         return User

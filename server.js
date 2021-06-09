@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require('./db/models');
 const app = express();
-const routes = require('./db/routes/index');
+//const routes = require('./db/routes/index');
 const route = require('./db/routes/shop');
 
 
@@ -17,12 +17,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 db.sequelize.sync();
 
-app.use('/create-order', route);
-app.use('/', routes);
+app.use('/', route);
+
+/*app.use('/', routes);
 
 app.get("/", (req, res) => {
   res.json({ message: "This is a shopping app" });
-});
+});*/
 
 const PORT = process.env.PORT || 3000;
 

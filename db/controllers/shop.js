@@ -1,15 +1,14 @@
 const User = require('../models/user');
-const Cart = require('../models/carts/carts');
+const Carts = require('../models/carts/carts');
 //const Order = require('../models/order/order');
 //const { productId } = require('../models/cart_product/fields');
 
-module.exorts = {
+module.exports = {
     list(req,res) {
         return User
         .findAll({
             include: [{
-                model: Cart,
-                as: 'cart' 
+                model: Carts, 
             }],
         })
         .then((users) => res.status(200).send(users))
@@ -20,8 +19,7 @@ module.exorts = {
         return User
         .findById(req.params.id,{
             include: [{
-                model: Cart,
-                as: 'cart'
+                model: Carts,
             }],
         })
         .then((user) => {

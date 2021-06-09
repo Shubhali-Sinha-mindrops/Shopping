@@ -8,4 +8,4 @@ module.exports = {
     },
     userId: Sequelize.Integer,
     total: Sequelize.Integer,
-}
+};

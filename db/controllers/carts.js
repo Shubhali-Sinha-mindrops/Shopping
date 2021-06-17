@@ -2,7 +2,7 @@ const db = require("../models");
 const Carts = db.cart;
 
 
-exports.create = (req, res) => {
+exports.createCart = (req, res) => {
     if (!req.body.userId) {
       res.status(400).send({
         message: "Content can not be empty!"
@@ -15,21 +15,19 @@ exports.create = (req, res) => {
       total: req.body.total,
     };
   
-    Carts.create(carts)
+    Carts.createCart(carts)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while creating the User."
+            err.message || "Some error occurred while creating the carts."
         });
       });
   };
   
-
-
-  exports.findOne = (req,res) => {
+  exports.findCart = (req,res) => {
       const id = req.params.id;
 
       Carts.findByPk(id)
@@ -38,7 +36,9 @@ exports.create = (req, res) => {
       })
       .catch(err => {
           res.status(500).send({
-              message: "Error retrieving User with id ="+id
+              message: "Error retrieving cart with id ="+id
           });
       });
   };
+
+  

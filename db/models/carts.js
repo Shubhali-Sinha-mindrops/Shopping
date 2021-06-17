@@ -1,6 +1,5 @@
 'use strict';
 
-require('./associations');
 module.exports = function(sequelize, Sequelize) {
     const Cart= sequelize.define('carts',{
         id:{
@@ -17,3 +16,4 @@ module.exports = function(sequelize, Sequelize) {
 module.exports = Cart;
 return Cart;
 }
+

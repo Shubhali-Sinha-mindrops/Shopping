@@ -1,20 +1,19 @@
 'use strict';
 
 module.exports = function(sequelize, Sequelize) {
-    const User= sequelize.define('users',{
+    const Cart_product= sequelize.define('cart_products',{
         id:{
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        name: Sequelize.TEXT,
-        email: Sequelize.STRING,
-        phone: Sequelize.INTEGER,
-        address: Sequelize.STRING,
+        cartId: Sequelize.INTEGER,
+        productId: Sequelize.INTEGER,
+        quantity: Sequelize.INTEGER,
     },{
         timestamps:true,
     })
-    
-module.exports = User;
-return User;
+    module.exports = Cart_product;
+    return Cart_product;
 }
+ 

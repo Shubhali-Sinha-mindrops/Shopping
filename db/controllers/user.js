@@ -2,7 +2,7 @@ const db = require("../models");
 const User = db.user;
 
 
-exports.create = (req, res) => {
+exports.createUser = (req, res) => {
     if (!req.body.name) {
       res.status(400).send({
         message: "Content can not be empty!"
@@ -17,7 +17,7 @@ exports.create = (req, res) => {
       address: req.body.address,
     };
   
-    User.create(user)
+    User.createUser(user)
       .then(data => {
         res.send(data);
       })
@@ -31,7 +31,7 @@ exports.create = (req, res) => {
   
 
 
-  exports.findOne = (req,res) => {
+  exports.findUser = (req,res) => {
       const id = req.params.id;
 
       User.findByPk(id)

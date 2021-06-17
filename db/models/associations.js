@@ -1,49 +1,42 @@
-const User = require('./user');
-const Cart = require('./carts');
-const Cart_product = require('./cart_product/cart_product');
-const Product = require('./product/product');
-const Order_product = require('./order_product/order_product');
-const Order = require('./order/order');
+module.exports = function (model) {
 
-
-module.exports = function () {
-User.hasOne(Cart,{
+model.user.hasOne(model.cart,{
     foreignKey: 'userId', 
-    });
+});
 
-Cart.belongsTo(User,{
+model.cart.belongsTo(model.user,{
     foreignKey: 'userId'
 });
 
-Cart.hasMany(Cart_product,{
+model.cart.hasMany(model.cart_product,{
     foreignKey: "cartId",
 });
 
-Cart_product.belongsTo(Cart,{
+model.cart_product.belongsTo(model.cart,{
     foreignKey: "cartId",
 });
 
-Cart_product.belongsTo(Product,{
+model.cart_product.belongsTo(model.product,{
     foreignKey: "productId",
 });
 
-Order.hasMany(Order_product,{
+model.order.hasMany(model.order_product,{
     foreignKey: "orderId",
 });
 
-Order_product.belongsTo(Order,{
+model.order_product.belongsTo(model.order,{
     foreignKey: "orderId",
 });
 
-Order_product.belongsTo(Product,{
+model.order_product.belongsTo(model.product,{
     foreignKey: "productId",
 })
 
-User.hasMany(Order,{
+model.user.hasMany(model.order,{
     foreignKey: "userId",
 });
 
-Order.belongsTo(User, {
+model.order.belongsTo(model.user, {
     foreignKey: "userId",
 });
 };

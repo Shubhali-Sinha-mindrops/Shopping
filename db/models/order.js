@@ -1,20 +1,18 @@
 'use strict';
 
-require('../associations');
 module.exports = function(sequelize, Sequelize) {
-    const Cart_products= sequelize.define('cart_products',{
+    const Order= sequelize.define('orders',{
         id:{
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        cartId: Sequelize.INTEGER,
-        productId: Sequelize.INTEGER,
-        quantity: Sequelize.INTEGER,
+        userId: Sequelize.INTEGER,
+        orderTotal: Sequelize.INTEGER,
     },{
         timestamps:true,
     });
-
-    return Cart_products;
+    module.exports = Order;
+    return Order;
 };
  

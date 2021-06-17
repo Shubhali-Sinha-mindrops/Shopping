@@ -1,6 +1,6 @@
 const dbConfig = require("../config/db.config.js");
-
 const Sequelize = require("sequelize");
+
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
@@ -18,8 +18,12 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.user = require("../models/user")(sequelize, Sequelize);
-db.cart = require("../models/carts")(sequelize, Sequelize);
+db.user = require("./user")(sequelize, Sequelize);
+db.cart = require("./carts")(sequelize, Sequelize);
+db.cart_product = require("./cart_product")(sequelize,Sequelize);
+db.order = require("./order")(sequelize, Sequelize);
+db.product = require("./product")(sequelize,Sequelize);
+db.order_product = require("./order_product")(sequelize, Sequelize);
 
-
+require('./associations')(db)
 module.exports = db;

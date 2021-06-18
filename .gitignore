@@ -1,3 +1,4 @@
 /db/migrations/*
 /db/seeders/*
 /node_modules/*
+queries.js

@@ -4,7 +4,7 @@ const carts = require('../controllers/carts');
 const products = require('../controllers/products');
 
 //user-controller
-router.post("/insertUser",users.createUser);
+//router.post("/insertUser",users.signUp);
 router.get("/findUser/:id", users.findUser);
 
 //carts-controller

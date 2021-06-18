@@ -39,4 +39,6 @@ model.user.hasMany(model.order,{
 model.order.belongsTo(model.user, {
     foreignKey: "userId",
 });
+
 };
+

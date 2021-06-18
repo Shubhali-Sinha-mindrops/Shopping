@@ -11,6 +11,7 @@ module.exports = function(sequelize, Sequelize) {
         email: Sequelize.STRING,
         phone: Sequelize.INTEGER,
         address: Sequelize.STRING,
+        password: Sequelize.STRING
     },{
         timestamps:true,
     })
